@@ -26,18 +26,71 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
-## Logic Diagram
-## Procedure
-## Program:
-/*
-Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-## RTL realization
 
-## Output:
+## Procedure
+1.Create module projectname(input ,output) to start the verilog programming.
+
+2.create a if loop condition to increase the count in counter_up function.
+
+3.Similarly, create another loop for the down counter.
+
+4.End the verilog program using keyword endmodule.
+
+5.Get the timing diagram and RTL realization diagram for respective Counters.
+
+## Program:
+```
+Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
+Developed by: YOHESHKUMAR R.M
+RegisterNumber:22008459  
+```
+```
+module uc(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_up<=4'd0;
+else
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+
+
+DOWN COUNTER:-
+
+module dc(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_down;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_down<=4'd0;
+else
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
+```
+## RTL realization and output
+
 ## RTL
+### upcounter
+![output](./uprtl.png)
+### downcounter
+![output](./downrtl.png)
+
 ## Timing Diagram
+### upcounter
+![output](./tdup.png)
+### downcounter
+![output](./tddown.png)
+
+## Truth Table
+### upcounter
+![output](./ttup.png)
+### downcounter
+![output](./ttdown.png)
+
 ## Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
